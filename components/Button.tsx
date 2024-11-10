@@ -3,15 +3,17 @@ import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 type ButtonProps = {
   title: string;
+  className?: string; // Make className optional
 } & TouchableOpacityProps;
 
 export const Button = forwardRef<TouchableOpacity, ButtonProps>(
-  ({ title, ...touchableProps }, ref) => {
+  ({ title, className, ...touchableProps }, ref) => {
     return (
       <TouchableOpacity
         ref={ref}
         {...touchableProps}
-        className={`${styles.button} ${touchableProps.className}`}>
+        className={`${styles.button} ${className || ''}`} // Merge classNames
+      >
         <Text className={styles.buttonText}>{title}</Text>
       </TouchableOpacity>
     );
