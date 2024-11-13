@@ -1,6 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link, useNavigation , Redirect, useRouter} from 'expo-router';
 
 const ForgotPassword = () => {
   return (
@@ -17,13 +18,14 @@ const ForgotPassword = () => {
         />
       </View>
 
-      <TouchableOpacity className="w-full bg-blue-500 py-4 rounded mt-2">
+      <TouchableOpacity className="w-full bg-emerald-500 py-4 rounded mt-2">
         <Text className="text-center text-white font-bold">Send Reset Link</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity className="mt-4">
-        <Text className="text-blue-500">Back to Sign In</Text>
-      </TouchableOpacity>
+     
+      <View className='mt-4'>
+      <Link className="text-emerald-500" href="/(auth)/sign-in">Back to Sign In</Link>
+      </View>
     </SafeAreaView>
   );
 };
